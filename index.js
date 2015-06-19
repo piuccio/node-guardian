@@ -17,6 +17,8 @@ app.get(/\/.+/, function (req, res, next) {
 
 app.use('/static', express.static('static'));
 app.use('/static', express.static('build'));
+app.use('/static', express.static('jspm_packages/github/guardian/frontend@master'));
+app.use('/static/jspm_packages', express.static('jspm_packages'));
 app.use('/api/static', express.static('build'));
 app.use('/api', express.static('api/static'));
 
