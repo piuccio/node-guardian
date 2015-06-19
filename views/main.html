@@ -552,37 +552,7 @@
 
 		// Bracket notation for IE8 (import is reserved)
 		System['import']('core')
-		.then(function(){
-			return System['import']('raven');
-		})
-		.then(function(raven) {
-			raven.config(
-				'http://' + guardian.config.page.sentryPublicApiKey + '@' + guardian.config.page.sentryHost,
-				{
-					whitelistUrls: [
-						/localhost/,
-						/assets\.guim\.co\.uk/,
-						/ophan\.co\.uk/
-					],
-					tags: {
-						edition:        guardian.config.page.edition,
-						contentType:    guardian.config.page.contentType,
-						revisionNumber: guardian.config.page.revisionNumber,
-						loaderType:     'SystemJs'
-					},
-					dataCallback: function(data) {
-						if (data.culprit) {
-							data.culprit = data.culprit.replace(/\/[a-z\d]{32}(\/[^\/]+)$/, '$1');
-						}
-						data.tags.origin = (/j.ophan.co.uk/.test(data.culprit)) ? 'ophan' : 'app';
-						return data;
-					},
-					shouldSendCallback: function(data) {
-						return false;
-					}
-				}
-			)
-			//.install();
+		.then(function() {
 
 			// Safe to depend on Lodash because it's part of core
 			System['import']('common/utils/_').then(function (_) {
@@ -614,12 +584,9 @@
 					images.listen();
 
 					if (config.switches.commercial && !config.page.isPreferencesPage) {
-						System['import']('bootstraps/commercial').then(raven.wrap(
-							{ tags: { feature: 'commercial' } },
-							function (commercial) {
-								commercial.init();
-							}
-						));
+						System['import']('bootstraps/commercial').then(function (commercial) {
+							commercial.init();
+						});
 					}
 
 					if (guardian.isModernBrowser) {
