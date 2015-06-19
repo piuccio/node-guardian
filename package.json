@@ -1,0 +1,13 @@
+{
+  "name": "repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "aws-s3-facia-tool": "^0.4.0",
+    "aws-sdk": "^2.1.34",
+    "express": "^4.12.4",
+    "hogan.js": "^3.0.2"
+  }
+}

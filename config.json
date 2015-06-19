@@ -1,0 +1,11 @@
+{
+    "bucket": "aws-frontend-store",
+    "env": "PROD",
+    "configKey": "frontsapi/config/config.json",
+    "pressedPrefix": "frontsapi/pressed/live",
+    "configHistoryPrefix": "frontsapi/history/config",
+    "collectionHistoryPrefix": "frontsapi/history/collection",
+    "collectionsPrefix": "frontsapi/collection",
+    "maxParallelRequests": 6,
+    "maxDaysHistory": 7
+}
