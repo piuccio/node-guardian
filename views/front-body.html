@@ -2,5 +2,10 @@
 	<div class="facia-page {{frontClasses}}" data-link-name="Front | {{path}}" role="main">
 		{{! loading react in here}}
 	</div>
-	<script src="/static/javascripts/main.js"></script>
+	{{#frontScriptBundle}}
+		<script src="/static/javascripts/{{frontScriptName}}.js"></script>
+	{{/frontScriptBundle}}
+	{{#frontScriptDev}}
+		<script>System.import('{{frontScriptDev}}')</script>
+	{{/frontScriptDev}}
 </div>
