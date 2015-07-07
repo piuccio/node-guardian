@@ -1,11 +1,14 @@
-<div class="l-side-margins">
-	<div class="facia-page {{frontClasses}}" data-link-name="Front | {{path}}" role="main">
-		{{! loading react in here}}
-	</div>
-	{{#frontScriptBundle}}
-		<script src="/static/javascripts/{{frontScriptName}}.js"></script>
-	{{/frontScriptBundle}}
-	{{#frontScriptDev}}
-		<script>System.import('{{frontScriptDev}}')</script>
-	{{/frontScriptDev}}
-</div>
+{{#frontScriptBundle}}
+	<script src="/static/javascripts/{{frontScriptName}}.js"></script>
+{{/frontScriptBundle}}
+{{#frontScriptDev}}
+	<script type="text/javascript" src="/static/jspm_packages/system.js"></script>
+	<script type="text/javascript" src="/static/config.js"></script>
+	<script>System.import('{{frontScriptDev}}')</script>
+{{/frontScriptDev}}
+
+<script type="data/json" id="front-initial-data">
+	{{> initialData}}
+</script>
+
+<div id="react-container"></div>

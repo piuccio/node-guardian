@@ -16,6 +16,7 @@
     "configFile": "static/config.js",
     "dependencies": {
       "jspm-bower-endpoint": "npm:jspm-bower-endpoint@^0.3.2",
+      "jsx": "github:floatdrop/plugin-jsx@^1.1.0",
       "lodash": "npm:lodash@2.4.1",
       "react": "npm:react@0.13.2"
     },
